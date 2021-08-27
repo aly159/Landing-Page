@@ -18,7 +18,6 @@
  *
  */
 let elements = document.querySelectorAll(".section");
-let navigator = document.querySelectorAll(".nav_section");
 /**
  * End Global Variables
  * Start Helper Functions
@@ -32,6 +31,24 @@ let navigator = document.querySelectorAll(".nav_section");
  */
 
 // build the nav
+
+//create nav link corresponding to each section and append it to the navContainer
+var counter = 0;
+elements.forEach((element) => {
+  var nav_bar = document.querySelector(".nav_bar");
+  //console.log(nav_bar);
+  var link = document.createElement("a");
+  link.classList.add("nav_section");
+  if (counter == 0) {
+    link.classList.add("active");
+    counter++;
+  }
+  var section_name = element.getAttribute("data-nav");
+  link.innerHTML = section_name;
+  // console.log(link);
+  nav_bar.appendChild(link);
+});
+
 // Add class 'active' to section when near top of viewport
 function ActiveChange(elementN) {
   ActiveNav = document.querySelector(".active");
@@ -67,8 +84,9 @@ function intersectionCheck(element) {
 // Scroll to section on link click
 //function clickLink ()
 //{
+let navigator = document.querySelectorAll(".nav_section");
 for (let i = 0; i < navigator.length; i++) {
-  // console.log("hello");
+  //console.log("hello");
   navigator[i].addEventListener("click", function () {
     elements[i].scrollIntoView({
       block: "start",

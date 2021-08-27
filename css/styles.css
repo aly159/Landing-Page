@@ -81,9 +81,9 @@ section {
   text-decoration: none;
 }
 
-.nav_bar a:first-of-type {
-  margin-left: 1430px;
-}
+/*.nav_bar a:first-of-type {
+  margin-left: 1260px;
+}*/
 .nav_bar a:hover {
   background-color: #333;
   color: white;
@@ -91,9 +91,13 @@ section {
 .active {
   background-color: #333;
 }
-@media only screen and (min-width: 400px) {
-  .nav_bar a:first-of-type {
-    margin-left: 0px;
+@media only screen and (max-width: 622px) {
+  .nav_bar {
+    height: 85px;
+  }
+  .nav_bar a {
+    padding: 10px 40px 10px;
+    display: block;
   }
 }
 /*.mirror {
