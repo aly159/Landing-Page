@@ -59,11 +59,14 @@ function ActiveChange(elementN) {
   elements[elementN].classList.add("active-class");
 }
 function intersectionCheck(element) {
-  // console.log("here");
   const rectangle = element.getBoundingClientRect();
+  //console.log(rectangle.bottom);
+  //console.log("----------------");
+  //console.log(window.innerHeight);
+  // console.log("-----------------------------------------");
   return (
-    rectangle.top >= 0 &&
-    rectangle.left >= 0 &&
+    // rectangle.top >= 0 &&
+    //rectangle.left >= 0 &&
     rectangle.bottom <=
       (window.innerHeight || document.documentElement.clientHeight) &&
     rectangle.right <=
@@ -84,6 +87,7 @@ function intersectionCheck(element) {
 // Scroll to section on link click
 //function clickLink ()
 //{
+
 let navigator = document.querySelectorAll(".nav_section");
 for (let i = 0; i < navigator.length; i++) {
   //console.log("hello");
@@ -96,10 +100,11 @@ for (let i = 0; i < navigator.length; i++) {
   });
   addEventListener("scroll", function () {
     if (intersectionCheck(elements[i])) {
-      // console.log("intersection");
+      console.log("intersection");
       ActiveChange(i);
     }
   });
 }
+
 //}
 // Set sections as active
